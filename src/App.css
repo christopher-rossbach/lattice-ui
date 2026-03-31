@@ -1,0 +1,30 @@
+h1, h2, h3, h4, h5, h6 {
+  color: #0f172a;
+}
+
+button {
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.12);
+}
+
+button:disabled {
+  opacity: 0.8;
+}
+
+/* Hide React Flow's persistent selection box around selected nodes (after selection) */
+.react-flow__nodesselection {
+  display: none !important;
+}
+
+/* Hide default selection styling on nodes */
+.react-flow__node.selected {
+  box-shadow: none !important;
+}
+
+.react-flow__node.selected .react-flow__handle {
+  border-color: transparent !important;
+}

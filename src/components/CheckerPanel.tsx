@@ -66,8 +66,35 @@ type RunFunctionResult = {
   durationMs: number | null;
 };
 
-type CheckerPanelProps = {
-  customCodes: string[];
+const defaultCustomHelpers = `// Return an object with any helpers you want to inject.
+// These functions will be merged into the built-ins and available in your checks.
+// Example:
+// return {
+//   isEvenRank: (n, rank) => (rank(n) ?? 0) % 2 === 0,
+// };
+return {};`;
+
+const HELPERS_STORAGE_KEY = 'lattice-checks-v1';
+
+const loadCustomCodes = (): string[] => {
+  if (typeof window === 'undefined') return [defaultCustomHelpers];
+  try {
+    const raw = window.localStorage.getItem(HELPERS_STORAGE_KEY);
+    if (!raw) {
+      const bundled = bundledDefaults.checksAndHelpers?.customCodes;
+      if (bundled && Array.isArray(bundled) && bundled.length) return bundled;
+      return [defaultCustomHelpers];
+    }
+    const parsed = JSON.parse(raw);
+    const stored = Array.isArray(parsed?.customCodes)
+      ? parsed.customCodes.filter((c: unknown): c is string => typeof c === 'string')
+      : null;
+    if (stored && stored.length) return stored;
+    if (typeof parsed?.customCode === 'string') return [parsed.customCode];
+    return [defaultCustomHelpers];
+  } catch (e) {
+    return [defaultCustomHelpers];
+  }
 };
 
 type GraphViewController = {
@@ -183,7 +210,46 @@ const loadStored = (): StoredState => {
   }
 };
 
-export const CheckerPanel: React.FC<CheckerPanelProps> = ({ customCodes }) => {
+export const CheckerPanel: React.FC = () => {
+  const initialCustomCodes = useMemo(() => loadCustomCodes(), []);
+  const [customCodes, setCustomCodes] = useState<string[]>(initialCustomCodes);
+  const [customExpanded, setCustomExpanded] = useState<boolean[]>(initialCustomCodes.map(() => false));
+
+  const updateCustomCode = (idx: number, value: string) => {
+    setCustomCodes((prev) => prev.map((c, i) => (i === idx ? value : c)));
+  };
+  const addCustomBlock = () => {
+    setCustomCodes((prev) => [...prev, defaultCustomHelpers]);
+    setCustomExpanded((prev) => [...prev, false]);
+  };
+  const removeCustomBlock = (idx: number) => {
+    setCustomCodes((prev) => { if (prev.length <= 1) return prev; const n = [...prev]; n.splice(idx, 1); return n; });
+    setCustomExpanded((prev) => { if (prev.length <= 1) return prev; const n = [...prev]; n.splice(idx, 1); return n; });
+  };
+  const toggleCustomBlock = (idx: number) => {
+    setCustomExpanded((prev) => prev.map((v, i) => (i === idx ? !v : v)));
+  };
+
+  // Persist custom codes
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    try {
+      const raw = window.localStorage.getItem(HELPERS_STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : {};
+      window.localStorage.setItem(HELPERS_STORAGE_KEY, JSON.stringify({ ...(parsed || {}), customCodes }));
+    } catch (e) { /* ignore */ }
+  }, [customCodes]);
+
+  // Keep expanded flags aligned
+  useEffect(() => {
+    setCustomExpanded((prev) => {
+      if (prev.length === customCodes.length) return prev;
+      const next = [...prev];
+      while (next.length < customCodes.length) next.push(false);
+      while (next.length > customCodes.length) next.pop();
+      return next;
+    });
+  }, [customCodes.length]);
   const { primary, secondary, foc } = useLatticeStore(
     (s) => ({
       primary: s.primary,
@@ -665,14 +731,12 @@ export const CheckerPanel: React.FC<CheckerPanelProps> = ({ customCodes }) => {
                   style={{ width: '100%', minHeight: 160, fontFamily: 'monospace', fontSize: 13, border: '1px solid #e2e8f0', borderRadius: 10, background: '#fff', color: '#0f172a' }}
                 />
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', gap: 8, alignItems: 'center', color: '#475569', fontSize: 12 }}>
-                    <span>Return null/undefined to pass; return a string to fail.</span>
-                  </div>
-                  <div style={{ display: 'flex', gap: 8 }}>
-                    <button onClick={() => move(check.id, -1)} style={buttonStyles.secondary}>↑</button>
-                    <button onClick={() => move(check.id, 1)} style={buttonStyles.secondary}>↓</button>
+                  <div style={{ color: '#94a3b8', fontSize: 11 }}>Return null to pass, string to fail.</div>
+                  <div style={{ display: 'flex', gap: 4 }}>
+                    <button onClick={() => move(check.id, -1)} style={buttonStyles.icon}>↑</button>
+                    <button onClick={() => move(check.id, 1)} style={buttonStyles.icon}>↓</button>
                     {checks.length > 1 && (
-                      <button onClick={() => deleteCheck(check.id)} style={{ ...buttonStyles.secondary, borderColor: '#b91c1c', background: '#b91c1c', color: '#fff' }}>Delete</button>
+                      <button onClick={() => deleteCheck(check.id)} style={buttonStyles.danger}>Delete</button>
                     )}
                     <button onClick={() => handleRunOne(check.id)} style={buttonStyles.primary}>Run</button>
                   </div>
@@ -713,7 +777,7 @@ export const CheckerPanel: React.FC<CheckerPanelProps> = ({ customCodes }) => {
                 )}
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <button onClick={(e) => { e.stopPropagation(); handleRunFunction(fn.id); }} style={{ ...buttonStyles.primary, padding: '6px 10px', fontSize: 12 }}>Run</button>
+                <button onClick={(e) => { e.stopPropagation(); handleRunFunction(fn.id); }} style={buttonStyles.primary}>Run</button>
                 <span style={{ color: '#475569', fontSize: 12, cursor: 'pointer' }} onClick={() => toggleFunction(fn.id)}>{fn.expanded ? '▾' : '▸'}</span>
               </div>
             </div>
@@ -748,14 +812,12 @@ export const CheckerPanel: React.FC<CheckerPanelProps> = ({ customCodes }) => {
                   style={{ width: '100%', minHeight: 160, fontFamily: 'monospace', fontSize: 13, border: '1px solid #e2e8f0', borderRadius: 10, background: '#fff', color: '#0f172a' }}
                 />
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', gap: 8, alignItems: 'center', color: '#475569', fontSize: 12 }}>
-                    <span>Returns are displayed; no pass/fail.</span>
-                  </div>
-                  <div style={{ display: 'flex', gap: 8 }}>
-                    <button onClick={() => moveFunction(fn.id, -1)} style={buttonStyles.secondary}>↑</button>
-                    <button onClick={() => moveFunction(fn.id, 1)} style={buttonStyles.secondary}>↓</button>
+                  <div style={{ color: '#94a3b8', fontSize: 11 }}>Returns are displayed; no pass/fail.</div>
+                  <div style={{ display: 'flex', gap: 4 }}>
+                    <button onClick={() => moveFunction(fn.id, -1)} style={buttonStyles.icon}>↑</button>
+                    <button onClick={() => moveFunction(fn.id, 1)} style={buttonStyles.icon}>↓</button>
                     {functions.length > 1 && (
-                      <button onClick={() => deleteFunction(fn.id)} style={{ ...buttonStyles.secondary, borderColor: '#b91c1c', background: '#b91c1c', color: '#fff' }}>Delete</button>
+                      <button onClick={() => deleteFunction(fn.id)} style={buttonStyles.danger}>Delete</button>
                     )}
                     <button onClick={() => handleRunFunction(fn.id)} style={buttonStyles.primary}>Run</button>
                   </div>
@@ -766,27 +828,102 @@ export const CheckerPanel: React.FC<CheckerPanelProps> = ({ customCodes }) => {
           </div>
         ))}
       </div>
+
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: 20, marginBottom: 8 }}>
+        <div style={{ fontWeight: 700 }}>Custom Helper Functions</div>
+        <button onClick={addCustomBlock} style={{ padding: '6px 10px', borderRadius: 8, border: '1px solid #2563eb', background: '#2563eb', color: '#fff', fontWeight: 700, cursor: 'pointer' }}>+ Add block</button>
+      </div>
+      <div style={{ display: 'grid', gap: 10 }}>
+        {customCodes.map((code, idx) => (
+          <div key={`custom-block-${idx}`} style={{ border: '1px solid #e2e8f0', borderRadius: 10, padding: 10, background: '#f8fafc', display: 'grid', gap: 8 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                <button onClick={() => toggleCustomBlock(idx)} style={{ padding: '2px 6px', borderRadius: 6, border: '1px solid #e2e8f0', background: '#fff', cursor: 'pointer' }}>{customExpanded[idx] ? '▾' : '▸'}</button>
+                <div style={{ fontWeight: 600, color: '#0f172a' }}>Helper block {idx + 1}</div>
+              </div>
+              {customCodes.length > 1 && (
+                <button onClick={() => removeCustomBlock(idx)} style={{ padding: '4px 8px', borderRadius: 6, border: '1px solid #b91c1c', background: '#fff', color: '#b91c1c', fontWeight: 700, cursor: 'pointer' }}>Remove</button>
+              )}
+            </div>
+            {customExpanded[idx] && (
+              <>
+                <Editor
+                  value={code}
+                  onValueChange={(val) => updateCustomCode(idx, val)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); return; }
+                    if (e.key !== 'Tab') return;
+                    e.preventDefault();
+                    const { selectionStart = 0, selectionEnd = 0, value } = e.currentTarget as HTMLTextAreaElement;
+                    const next = value.slice(0, selectionStart) + '  ' + value.slice(selectionEnd);
+                    updateCustomCode(idx, next);
+                    const caret = selectionStart + 2;
+                    requestAnimationFrame(() => {
+                      const el = document.getElementById(`custom-${idx}`) as HTMLTextAreaElement | null;
+                      if (!el) return;
+                      el.selectionStart = caret;
+                      el.selectionEnd = caret;
+                    });
+                  }}
+                  highlight={(val) => {
+                    const lang = Prism.languages.typescript || Prism.languages.javascript || Prism.languages.clike || Prism.languages.markup;
+                    if (!lang) return val;
+                    try { return Prism.highlight(val, lang, 'typescript'); } catch { return val; }
+                  }}
+                  padding={12}
+                  textareaId={`custom-${idx}`}
+                  textareaClassName="checker-textarea"
+                  style={{ width: '100%', minHeight: 180, fontFamily: 'monospace', fontSize: 13, borderRadius: 8, border: '1px solid #e2e8f0', background: '#fff', color: '#0f172a' }}
+                />
+                <div style={{ color: '#475569', fontSize: 12 }}>Return an object; its properties merge into built-in helpers. Each block sees helpers from previous blocks.</div>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
 const buttonStyles = {
   primary: {
-    padding: '8px 12px',
-    borderRadius: 10,
+    padding: '6px 12px',
+    borderRadius: 8,
     border: '1px solid #2563eb',
     background: '#2563eb',
     color: '#fff',
-    fontWeight: 700,
+    fontWeight: 600,
+    fontSize: 12,
     cursor: 'pointer',
   } as React.CSSProperties,
   secondary: {
-    padding: '8px 12px',
-    borderRadius: 10,
-    border: '1px solid #0f172a',
-    background: '#0f172a',
-    color: '#e2e8f0',
-    fontWeight: 700,
+    padding: '6px 12px',
+    borderRadius: 8,
+    border: '1px solid #cbd5e1',
+    background: '#fff',
+    color: '#334155',
+    fontWeight: 600,
+    fontSize: 12,
+    cursor: 'pointer',
+  } as React.CSSProperties,
+  icon: {
+    padding: '4px 8px',
+    borderRadius: 6,
+    border: '1px solid #e2e8f0',
+    background: '#f8fafc',
+    color: '#64748b',
+    fontSize: 12,
+    cursor: 'pointer',
+    lineHeight: 1,
+  } as React.CSSProperties,
+  danger: {
+    padding: '6px 12px',
+    borderRadius: 8,
+    border: '1px solid #fecaca',
+    background: '#fff',
+    color: '#dc2626',
+    fontWeight: 600,
+    fontSize: 12,
     cursor: 'pointer',
   } as React.CSSProperties,
 };

@@ -4,7 +4,7 @@
       "1": {
         "id": "1",
         "rank": 1,
-        "color": "#34d399"
+        "color": "#a78bfa"
       },
       "2": {
         "id": "2",
@@ -24,111 +24,57 @@
       "5": {
         "id": "5",
         "rank": 1,
-        "color": "#f97316"
+        "color": "#a78bfa"
       },
       "6": {
         "id": "6",
         "rank": 1,
-        "color": "#0f172a"
-      },
-      "8": {
-        "id": "8",
-        "rank": 1,
-        "color": "#0f172a"
+        "color": "#a78bfa"
       },
       "⊥": {
         "id": "⊥",
         "rank": 0,
-        "color": "#a78bfa"
+        "color": "#a78bfa",
+        "name": "0"
       },
       "⊤": {
         "id": "⊤",
-        "rank": 4
-      },
-      "β": {
-        "id": "β",
-        "rank": 3,
-        "color": "#34d399"
-      },
-      "β_1": {
-        "id": "β_1",
-        "rank": 3,
-        "color": "#f97316"
+        "rank": 4,
+        "name": "$\\alpha$",
+        "color": "#a78bfa"
       },
       "a": {
         "id": "a",
         "rank": 2,
-        "color": "#34d399"
+        "color": "#a78bfa",
+        "name": "b"
       },
       "b": {
         "id": "b",
         "rank": 2,
-        "color": "#34d399"
+        "color": "#a78bfa",
+        "name": "c"
       },
       "c": {
         "id": "c",
         "rank": 2,
-        "color": "#34d399"
+        "color": "#a78bfa",
+        "name": "d"
       },
       "d": {
         "id": "d",
         "rank": 2,
-        "color": "#a78bfa"
+        "color": "#a78bfa",
+        "name": "a"
       },
-      "e": {
-        "id": "e",
-        "rank": 2,
-        "color": "#f97316"
-      },
-      "f": {
-        "id": "f",
-        "rank": 2,
-        "color": "#f97316"
-      },
-      "g": {
-        "id": "g",
-        "rank": 2,
-        "color": "#f97316"
-      },
-      "i": {
-        "id": "i",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "j": {
-        "id": "j",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "k": {
-        "id": "k",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "γ": {
-        "id": "γ",
+      "β": {
+        "id": "β",
         "rank": 3,
-        "color": "#0f172a"
+        "color": "#a78bfa"
       }
     },
     "relations": [
       {
-        "from": "β",
-        "to": "⊤"
-      },
-      {
-        "from": "⊤",
-        "to": "β"
-      },
-      {
-        "from": "β_1",
-        "to": "⊤"
-      },
-      {
-        "from": "⊤",
-        "to": "β_1"
-      },
-      {
         "from": "1",
         "to": "⊥"
       },
@@ -151,6 +97,22 @@
       {
         "from": "⊥",
         "to": "3"
+      },
+      {
+        "from": "4",
+        "to": "c"
+      },
+      {
+        "from": "c",
+        "to": "4"
+      },
+      {
+        "from": "5",
+        "to": "c"
+      },
+      {
+        "from": "c",
+        "to": "5"
       },
       {
         "from": "4",
@@ -169,116 +131,36 @@
         "to": "5"
       },
       {
-        "from": "a",
-        "to": "β"
+        "from": "⊥",
+        "to": "6"
       },
       {
-        "from": "β",
+        "from": "6",
+        "to": "⊥"
+      },
+      {
+        "from": "1",
         "to": "a"
       },
       {
-        "from": "b",
-        "to": "β"
+        "from": "a",
+        "to": "1"
       },
       {
-        "from": "β",
-        "to": "b"
+        "from": "3",
+        "to": "a"
       },
       {
-        "from": "c",
-        "to": "β"
-      },
-      {
-        "from": "β",
-        "to": "c"
-      },
-      {
-        "from": "d",
-        "to": "β"
-      },
-      {
-        "from": "β",
-        "to": "d"
-      },
-      {
-        "from": "d",
-        "to": "β_1"
-      },
-      {
-        "from": "β_1",
-        "to": "d"
-      },
-      {
-        "from": "e",
-        "to": "β_1"
-      },
-      {
-        "from": "β_1",
-        "to": "e"
-      },
-      {
-        "from": "f",
-        "to": "β_1"
-      },
-      {
-        "from": "β_1",
-        "to": "f"
-      },
-      {
-        "from": "g",
-        "to": "β_1"
-      },
-      {
-        "from": "β_1",
-        "to": "g"
-      },
-      {
-        "from": "2",
-        "to": "d"
+        "from": "a",
+        "to": "3"
       },
       {
         "from": "d",
         "to": "2"
       },
       {
-        "from": "3",
+        "from": "2",
         "to": "d"
-      },
-      {
-        "from": "d",
-        "to": "3"
-      },
-      {
-        "from": "4",
-        "to": "d"
-      },
-      {
-        "from": "d",
-        "to": "4"
-      },
-      {
-        "from": "a",
-        "to": "1"
-      },
-      {
-        "from": "1",
-        "to": "a"
-      },
-      {
-        "from": "a",
-        "to": "4"
-      },
-      {
-        "from": "4",
-        "to": "a"
-      },
-      {
-        "from": "b",
-        "to": "1"
-      },
-      {
-        "from": "1",
-        "to": "b"
       },
       {
         "from": "b",
@@ -289,1419 +171,232 @@
         "to": "b"
       },
       {
+        "from": "b",
+        "to": "3"
+      },
+      {
+        "from": "3",
+        "to": "b"
+      },
+      {
+        "from": "3",
+        "to": "c"
+      },
+      {
         "from": "c",
+        "to": "3"
+      },
+      {
+        "from": "d",
         "to": "1"
       },
       {
         "from": "1",
-        "to": "c"
+        "to": "d"
       },
       {
-        "from": "c",
-        "to": "3"
+        "from": "a",
+        "to": "β"
       },
       {
-        "from": "3",
-        "to": "c"
+        "from": "b",
+        "to": "β"
       },
       {
-        "from": "e",
-        "to": "3"
+        "from": "d",
+        "to": "β"
       },
       {
-        "from": "3",
-        "to": "e"
+        "from": "β",
+        "to": "a"
       },
       {
-        "from": "e",
-        "to": "5"
+        "from": "β",
+        "to": "b"
       },
       {
-        "from": "5",
-        "to": "e"
+        "from": "β",
+        "to": "d"
       },
       {
-        "from": "f",
-        "to": "4"
-      },
-      {
-        "from": "4",
-        "to": "f"
-      },
-      {
-        "from": "f",
-        "to": "5"
-      },
-      {
-        "from": "5",
-        "to": "f"
-      },
-      {
-        "from": "g",
-        "to": "5"
-      },
-      {
-        "from": "5",
-        "to": "g"
-      },
-      {
-        "from": "g",
-        "to": "2"
-      },
-      {
-        "from": "2",
-        "to": "g"
-      },
-      {
-        "from": "i",
-        "to": "6"
-      },
-      {
-        "from": "6",
-        "to": "i"
-      },
-      {
-        "from": "j",
-        "to": "8"
-      },
-      {
-        "from": "8",
-        "to": "j"
-      },
-      {
-        "from": "k",
-        "to": "8"
-      },
-      {
-        "from": "8",
-        "to": "k"
-      },
-      {
-        "from": "6",
-        "to": "⊥"
-      },
-      {
-        "from": "⊥",
-        "to": "6"
-      },
-      {
-        "from": "8",
-        "to": "⊥"
-      },
-      {
-        "from": "⊥",
-        "to": "8"
-      },
-      {
-        "from": "6",
-        "to": "k"
-      },
-      {
-        "from": "k",
-        "to": "6"
-      },
-      {
-        "from": "j",
-        "to": "3"
-      },
-      {
-        "from": "3",
-        "to": "j"
-      },
-      {
-        "from": "i",
-        "to": "3"
-      },
-      {
-        "from": "3",
-        "to": "i"
-      },
-      {
-        "from": "γ",
+        "from": "β",
         "to": "⊤"
       },
       {
         "from": "⊤",
-        "to": "γ"
+        "to": "c"
       },
       {
-        "from": "i",
-        "to": "γ"
+        "from": "c",
+        "to": "⊤"
       },
       {
-        "from": "γ",
-        "to": "i"
+        "from": "⊤",
+        "to": "6"
       },
       {
-        "from": "j",
-        "to": "γ"
-      },
-      {
-        "from": "γ",
-        "to": "j"
-      },
-      {
-        "from": "k",
-        "to": "γ"
-      },
-      {
-        "from": "γ",
-        "to": "k"
+        "from": "6",
+        "to": "⊤"
       }
     ],
     "positions": {
       "1": {
-        "x": -281.51446266800895
+        "x": -127.24550623359355
       },
       "2": {
-        "x": -141.51446266800892
+        "x": 12.754493766406455
       },
       "3": {
-        "x": -1.5144626680089277
+        "x": 152.75449376640645
       },
       "4": {
-        "x": 138.48553733199108
+        "x": 292.7544937664064
       },
       "5": {
-        "x": 278.48553733199105
+        "x": 432.7544937664064
       },
       "6": {
-        "x": 710.7131795228537
-      },
-      "8": {
-        "x": 850.7131795228537
+        "x": 572.7544937664064
       },
       "⊥": {
-        "x": 0
+        "x": 205.02377805977596
       },
       "⊤": {
-        "x": 0
-      },
-      "β": {
-        "x": -71.51446266800893
-      },
-      "β_1": {
-        "x": 68.48553733199107
+        "x": 294.8868663046462
       },
       "a": {
-        "x": -421.51446266800895
+        "x": 12.665248876206618
       },
       "b": {
-        "x": -281.51446266800895
+        "x": 152.66524887620665
       },
       "c": {
-        "x": -141.51446266800892
+        "x": 292.66524887620665
       },
       "d": {
-        "x": -1.5144626680089277
-      },
-      "e": {
-        "x": 138.48553733199108
-      },
-      "f": {
-        "x": 278.48553733199105
-      },
-      "g": {
-        "x": 418.48553733199105
-      },
-      "i": {
-        "x": 570.2729773306811
-      },
-      "j": {
-        "x": 710.2729773306811
-      },
-      "k": {
-        "x": 850.2729773306811
-      },
-      "γ": {
-        "x": 710.2729773306811
+        "x": -127.33475112379337
       }
     }
   },
   "secondaryGraph": {
     "elements": {
-      "1": {
-        "id": "1",
-        "rank": 1,
-        "color": "#34d399"
-      },
-      "2": {
-        "id": "2",
-        "rank": 1,
-        "color": "#a78bfa"
-      },
-      "3": {
-        "id": "3",
-        "rank": 1,
-        "color": "#a78bfa"
-      },
-      "4": {
-        "id": "4",
-        "rank": 1,
-        "color": "#a78bfa"
-      },
-      "5": {
-        "id": "5",
-        "rank": 1,
-        "color": "#f97316"
-      },
-      "6": {
-        "id": "6",
-        "rank": 1,
-        "color": "#0f172a"
-      },
-      "8": {
-        "id": "8",
-        "rank": 1,
-        "color": "#0f172a"
-      },
-      "∅": {
-        "id": "∅",
+      "⊥": {
+        "id": "⊥",
         "rank": 0,
-        "color": "#a78bfa"
+        "color": "#94a3b8"
       },
-      "1,2": {
-        "id": "1,2",
+      "⊤": {
+        "id": "⊤",
+        "rank": 3,
+        "name": "{1,2,3}"
+      },
+      "{1}": {
+        "id": "{1}",
+        "rank": 1,
+        "color": "#0f172a"
+      },
+      "{2}": {
+        "id": "{2}",
+        "rank": 1,
+        "color": "#0f172a"
+      },
+      "{1,2}": {
+        "id": "{1,2}",
         "rank": 2,
-        "color": "#34d399"
+        "color": "#0f172a",
+        "name": "{1,2}"
       },
-      "1,3": {
-        "id": "1,3",
+      "{3}": {
+        "id": "{3}",
+        "rank": 1,
+        "color": "#0f172a"
+      },
+      "{2,3}": {
+        "id": "{2,3}",
         "rank": 2,
-        "color": "#34d399"
-      },
-      "1,4": {
-        "id": "1,4",
-        "rank": 2,
-        "color": "#34d399"
-      },
-      "1,5": {
-        "id": "1,5",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "1,6": {
-        "id": "1,6",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "1,8": {
-        "id": "1,8",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "2,3,4": {
-        "id": "2,3,4",
-        "rank": 2,
-        "color": "#a78bfa"
-      },
-      "2,5": {
-        "id": "2,5",
-        "rank": 2,
-        "color": "#f97316"
-      },
-      "2,6": {
-        "id": "2,6",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "2,8": {
-        "id": "2,8",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "3,5": {
-        "id": "3,5",
-        "rank": 2,
-        "color": "#f97316"
-      },
-      "3,6": {
-        "id": "3,6",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "3,8": {
-        "id": "3,8",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "4,5": {
-        "id": "4,5",
-        "rank": 2,
-        "color": "#f97316"
-      },
-      "4,6": {
-        "id": "4,6",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "4,8": {
-        "id": "4,8",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "5,6": {
-        "id": "5,6",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "5,8": {
-        "id": "5,8",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "6,8": {
-        "id": "6,8",
-        "rank": 2,
-        "color": "#0f172a"
-      },
-      "1,2,3,4": {
-        "id": "1,2,3,4",
-        "rank": 3,
-        "color": "#34d399"
-      },
-      "1,2,5": {
-        "id": "1,2,5",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,2,6": {
-        "id": "1,2,6",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,2,8": {
-        "id": "1,2,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,3,5": {
-        "id": "1,3,5",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,3,6": {
-        "id": "1,3,6",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,3,8": {
-        "id": "1,3,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,4,5": {
-        "id": "1,4,5",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,4,6": {
-        "id": "1,4,6",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,4,8": {
-        "id": "1,4,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,5,6": {
-        "id": "1,5,6",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,5,8": {
-        "id": "1,5,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,6,8": {
-        "id": "1,6,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "2,3,4,5": {
-        "id": "2,3,4,5",
-        "rank": 3,
-        "color": "#f97316"
-      },
-      "2,3,4,6": {
-        "id": "2,3,4,6",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "2,3,4,8": {
-        "id": "2,3,4,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "2,5,6": {
-        "id": "2,5,6",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "2,5,8": {
-        "id": "2,5,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "2,6,8": {
-        "id": "2,6,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "3,5,6": {
-        "id": "3,5,6",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "3,5,8": {
-        "id": "3,5,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "3,6,8": {
-        "id": "3,6,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "4,5,6": {
-        "id": "4,5,6",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "4,5,8": {
-        "id": "4,5,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "4,6,8": {
-        "id": "4,6,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "5,6,8": {
-        "id": "5,6,8",
-        "rank": 3,
-        "color": "#0f172a"
-      },
-      "1,2,3,4,5,6,8": {
-        "id": "1,2,3,4,5,6,8",
-        "rank": 4
+        "color": "#0f172a",
+        "name": "{2,3}"
       }
     },
     "relations": [
       {
-        "from": "∅",
-        "to": "1"
+        "from": "⊥",
+        "to": "{1}"
       },
       {
-        "from": "∅",
-        "to": "2"
+        "from": "⊥",
+        "to": "{2}"
       },
       {
-        "from": "∅",
-        "to": "3"
+        "from": "{1}",
+        "to": "{1,2}"
       },
       {
-        "from": "∅",
-        "to": "4"
+        "from": "{2}",
+        "to": "{1,2}"
       },
       {
-        "from": "∅",
-        "to": "5"
+        "from": "⊥",
+        "to": "{3}"
       },
       {
-        "from": "∅",
-        "to": "6"
+        "from": "{2}",
+        "to": "{2,3}"
       },
       {
-        "from": "∅",
-        "to": "8"
+        "from": "{3}",
+        "to": "{2,3}"
       },
       {
-        "from": "1",
-        "to": "1,2"
+        "from": "{1,2}",
+        "to": "⊤"
       },
       {
-        "from": "1",
-        "to": "1,3"
+        "from": "⊤",
+        "to": "{1,2}"
       },
       {
-        "from": "1",
-        "to": "1,4"
+        "from": "{2,3}",
+        "to": "⊤"
       },
       {
-        "from": "1",
-        "to": "1,5"
+        "from": "⊤",
+        "to": "{2,3}"
       },
       {
-        "from": "1",
-        "to": "1,6"
+        "from": "{1}",
+        "to": "⊥"
       },
       {
-        "from": "1",
-        "to": "1,8"
+        "from": "{2}",
+        "to": "⊥"
       },
       {
-        "from": "2",
-        "to": "1,2"
-      },
-      {
-        "from": "2",
-        "to": "2,3,4"
-      },
-      {
-        "from": "2",
-        "to": "2,5"
-      },
-      {
-        "from": "2",
-        "to": "2,6"
-      },
-      {
-        "from": "2",
-        "to": "2,8"
-      },
-      {
-        "from": "3",
-        "to": "1,3"
-      },
-      {
-        "from": "3",
-        "to": "2,3,4"
-      },
-      {
-        "from": "3",
-        "to": "3,5"
-      },
-      {
-        "from": "3",
-        "to": "3,6"
-      },
-      {
-        "from": "3",
-        "to": "3,8"
-      },
-      {
-        "from": "4",
-        "to": "1,4"
-      },
-      {
-        "from": "4",
-        "to": "2,3,4"
-      },
-      {
-        "from": "4",
-        "to": "4,5"
-      },
-      {
-        "from": "4",
-        "to": "4,6"
-      },
-      {
-        "from": "4",
-        "to": "4,8"
-      },
-      {
-        "from": "5",
-        "to": "1,5"
-      },
-      {
-        "from": "5",
-        "to": "2,5"
-      },
-      {
-        "from": "5",
-        "to": "3,5"
-      },
-      {
-        "from": "5",
-        "to": "4,5"
-      },
-      {
-        "from": "5",
-        "to": "5,6"
-      },
-      {
-        "from": "5",
-        "to": "5,8"
-      },
-      {
-        "from": "6",
-        "to": "1,6"
-      },
-      {
-        "from": "6",
-        "to": "2,6"
-      },
-      {
-        "from": "6",
-        "to": "3,6"
-      },
-      {
-        "from": "6",
-        "to": "4,6"
-      },
-      {
-        "from": "6",
-        "to": "5,6"
-      },
-      {
-        "from": "6",
-        "to": "6,8"
-      },
-      {
-        "from": "8",
-        "to": "1,8"
-      },
-      {
-        "from": "8",
-        "to": "2,8"
-      },
-      {
-        "from": "8",
-        "to": "3,8"
-      },
-      {
-        "from": "8",
-        "to": "4,8"
-      },
-      {
-        "from": "8",
-        "to": "5,8"
-      },
-      {
-        "from": "8",
-        "to": "6,8"
-      },
-      {
-        "from": "1,2",
-        "to": "1,2,3,4"
-      },
-      {
-        "from": "1,2",
-        "to": "1,2,5"
-      },
-      {
-        "from": "1,2",
-        "to": "1,2,6"
-      },
-      {
-        "from": "1,2",
-        "to": "1,2,8"
-      },
-      {
-        "from": "1,3",
-        "to": "1,2,3,4"
-      },
-      {
-        "from": "1,3",
-        "to": "1,3,5"
-      },
-      {
-        "from": "1,3",
-        "to": "1,3,6"
-      },
-      {
-        "from": "1,3",
-        "to": "1,3,8"
-      },
-      {
-        "from": "1,4",
-        "to": "1,2,3,4"
-      },
-      {
-        "from": "1,4",
-        "to": "1,4,5"
-      },
-      {
-        "from": "1,4",
-        "to": "1,4,6"
-      },
-      {
-        "from": "1,4",
-        "to": "1,4,8"
-      },
-      {
-        "from": "1,5",
-        "to": "1,2,5"
-      },
-      {
-        "from": "1,5",
-        "to": "1,3,5"
-      },
-      {
-        "from": "1,5",
-        "to": "1,4,5"
-      },
-      {
-        "from": "1,5",
-        "to": "1,5,6"
-      },
-      {
-        "from": "1,5",
-        "to": "1,5,8"
-      },
-      {
-        "from": "1,6",
-        "to": "1,2,6"
-      },
-      {
-        "from": "1,6",
-        "to": "1,3,6"
-      },
-      {
-        "from": "1,6",
-        "to": "1,4,6"
-      },
-      {
-        "from": "1,6",
-        "to": "1,5,6"
-      },
-      {
-        "from": "1,6",
-        "to": "1,6,8"
-      },
-      {
-        "from": "1,8",
-        "to": "1,2,8"
-      },
-      {
-        "from": "1,8",
-        "to": "1,3,8"
-      },
-      {
-        "from": "1,8",
-        "to": "1,4,8"
-      },
-      {
-        "from": "1,8",
-        "to": "1,5,8"
-      },
-      {
-        "from": "1,8",
-        "to": "1,6,8"
-      },
-      {
-        "from": "2,3,4",
-        "to": "1,2,3,4"
-      },
-      {
-        "from": "2,3,4",
-        "to": "2,3,4,5"
-      },
-      {
-        "from": "2,3,4",
-        "to": "2,3,4,6"
-      },
-      {
-        "from": "2,3,4",
-        "to": "2,3,4,8"
-      },
-      {
-        "from": "2,5",
-        "to": "1,2,5"
-      },
-      {
-        "from": "2,5",
-        "to": "2,3,4,5"
-      },
-      {
-        "from": "2,5",
-        "to": "2,5,6"
-      },
-      {
-        "from": "2,5",
-        "to": "2,5,8"
-      },
-      {
-        "from": "2,6",
-        "to": "1,2,6"
-      },
-      {
-        "from": "2,6",
-        "to": "2,3,4,6"
-      },
-      {
-        "from": "2,6",
-        "to": "2,5,6"
-      },
-      {
-        "from": "2,6",
-        "to": "2,6,8"
-      },
-      {
-        "from": "2,8",
-        "to": "1,2,8"
-      },
-      {
-        "from": "2,8",
-        "to": "2,3,4,8"
-      },
-      {
-        "from": "2,8",
-        "to": "2,5,8"
-      },
-      {
-        "from": "2,8",
-        "to": "2,6,8"
-      },
-      {
-        "from": "3,5",
-        "to": "1,3,5"
-      },
-      {
-        "from": "3,5",
-        "to": "2,3,4,5"
-      },
-      {
-        "from": "3,5",
-        "to": "3,5,6"
-      },
-      {
-        "from": "3,5",
-        "to": "3,5,8"
-      },
-      {
-        "from": "3,6",
-        "to": "1,3,6"
-      },
-      {
-        "from": "3,6",
-        "to": "2,3,4,6"
-      },
-      {
-        "from": "3,6",
-        "to": "3,5,6"
-      },
-      {
-        "from": "3,6",
-        "to": "3,6,8"
-      },
-      {
-        "from": "3,8",
-        "to": "1,3,8"
-      },
-      {
-        "from": "3,8",
-        "to": "2,3,4,8"
-      },
-      {
-        "from": "3,8",
-        "to": "3,5,8"
-      },
-      {
-        "from": "3,8",
-        "to": "3,6,8"
-      },
-      {
-        "from": "4,5",
-        "to": "1,4,5"
-      },
-      {
-        "from": "4,5",
-        "to": "2,3,4,5"
-      },
-      {
-        "from": "4,5",
-        "to": "4,5,6"
-      },
-      {
-        "from": "4,5",
-        "to": "4,5,8"
-      },
-      {
-        "from": "4,6",
-        "to": "1,4,6"
-      },
-      {
-        "from": "4,6",
-        "to": "2,3,4,6"
-      },
-      {
-        "from": "4,6",
-        "to": "4,5,6"
-      },
-      {
-        "from": "4,6",
-        "to": "4,6,8"
-      },
-      {
-        "from": "4,8",
-        "to": "1,4,8"
-      },
-      {
-        "from": "4,8",
-        "to": "2,3,4,8"
-      },
-      {
-        "from": "4,8",
-        "to": "4,5,8"
-      },
-      {
-        "from": "4,8",
-        "to": "4,6,8"
-      },
-      {
-        "from": "5,6",
-        "to": "1,5,6"
-      },
-      {
-        "from": "5,6",
-        "to": "2,5,6"
-      },
-      {
-        "from": "5,6",
-        "to": "3,5,6"
-      },
-      {
-        "from": "5,6",
-        "to": "4,5,6"
-      },
-      {
-        "from": "5,6",
-        "to": "5,6,8"
-      },
-      {
-        "from": "5,8",
-        "to": "1,5,8"
-      },
-      {
-        "from": "5,8",
-        "to": "2,5,8"
-      },
-      {
-        "from": "5,8",
-        "to": "3,5,8"
-      },
-      {
-        "from": "5,8",
-        "to": "4,5,8"
-      },
-      {
-        "from": "5,8",
-        "to": "5,6,8"
-      },
-      {
-        "from": "6,8",
-        "to": "1,6,8"
-      },
-      {
-        "from": "6,8",
-        "to": "2,6,8"
-      },
-      {
-        "from": "6,8",
-        "to": "3,6,8"
-      },
-      {
-        "from": "6,8",
-        "to": "4,6,8"
-      },
-      {
-        "from": "6,8",
-        "to": "5,6,8"
-      },
-      {
-        "from": "1,2,3,4",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,2,5",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,2,6",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,2,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,3,5",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,3,6",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,3,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,4,5",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,4,6",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,4,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,5,6",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,5,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1,6,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "2,3,4,5",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "2,3,4,6",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "2,3,4,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "2,5,6",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "2,5,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "2,6,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "3,5,6",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "3,5,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "3,6,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "4,5,6",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "4,5,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "4,6,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "5,6,8",
-        "to": "1,2,3,4,5,6,8"
-      },
-      {
-        "from": "1",
-        "to": "∅"
-      },
-      {
-        "from": "2",
-        "to": "∅"
-      },
-      {
-        "from": "3",
-        "to": "∅"
-      },
-      {
-        "from": "4",
-        "to": "∅"
-      },
-      {
-        "from": "5",
-        "to": "∅"
-      },
-      {
-        "from": "6",
-        "to": "∅"
-      },
-      {
-        "from": "8",
-        "to": "∅"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,2,3,4"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,2,5"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,2,6"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,2,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,3,5"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,3,6"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,3,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,4,5"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,4,6"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,4,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,5,6"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,5,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "1,6,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "2,3,4,5"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "2,3,4,6"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "2,3,4,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "2,5,6"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "2,5,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "2,6,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "3,5,6"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "3,5,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "3,6,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "4,5,6"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "4,5,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "4,6,8"
-      },
-      {
-        "from": "1,2,3,4,5,6,8",
-        "to": "5,6,8"
+        "from": "{3}",
+        "to": "⊥"
       }
     ],
     "positions": {
-      "1": {
-        "x": -490
-      },
-      "2": {
-        "x": -350
-      },
-      "3": {
-        "x": -210
-      },
-      "4": {
-        "x": -70
-      },
-      "5": {
-        "x": 70
-      },
-      "6": {
-        "x": 210
-      },
-      "8": {
-        "x": 350
-      },
-      "∅": {
-        "x": -70
-      },
-      "1,2": {
-        "x": -1330
-      },
-      "1,3": {
-        "x": -1190
-      },
-      "1,4": {
-        "x": -1050
-      },
-      "1,5": {
-        "x": -910
-      },
-      "1,6": {
-        "x": -770
-      },
-      "1,8": {
-        "x": -630
-      },
-      "2,3,4": {
-        "x": -490
-      },
-      "2,5": {
-        "x": -350
-      },
-      "2,6": {
-        "x": -210
-      },
-      "2,8": {
-        "x": -70
-      },
-      "3,5": {
-        "x": 70
-      },
-      "3,6": {
-        "x": 210
-      },
-      "3,8": {
-        "x": 350
-      },
-      "4,5": {
-        "x": 490
-      },
-      "4,6": {
-        "x": 630
-      },
-      "4,8": {
-        "x": 770
-      },
-      "5,6": {
-        "x": 910
-      },
-      "5,8": {
-        "x": 1050
-      },
-      "6,8": {
-        "x": 1190
-      },
-      "1,2,3,4": {
-        "x": -1820
-      },
-      "1,2,5": {
-        "x": -1680
-      },
-      "1,2,6": {
-        "x": -1540
-      },
-      "1,2,8": {
-        "x": -1400
-      },
-      "1,3,5": {
-        "x": -1260
-      },
-      "1,3,6": {
-        "x": -1120
-      },
-      "1,3,8": {
-        "x": -980
-      },
-      "1,4,5": {
-        "x": -840
-      },
-      "1,4,6": {
-        "x": -700
-      },
-      "1,4,8": {
-        "x": -560
-      },
-      "1,5,6": {
-        "x": -420
-      },
-      "1,5,8": {
-        "x": -280
-      },
-      "1,6,8": {
-        "x": -140
-      },
-      "2,3,4,5": {
+      "⊥": {
         "x": 0
       },
-      "2,3,4,6": {
+      "⊤": {
+        "x": 0
+      },
+      "{1}": {
+        "x": -140
+      },
+      "{2}": {
+        "x": 0
+      },
+      "{1,2}": {
+        "x": -140
+      },
+      "{3}": {
         "x": 140
       },
-      "2,3,4,8": {
-        "x": 280
-      },
-      "2,5,6": {
-        "x": 420
-      },
-      "2,5,8": {
-        "x": 560
-      },
-      "2,6,8": {
-        "x": 700
-      },
-      "3,5,6": {
-        "x": 840
-      },
-      "3,5,8": {
-        "x": 980
-      },
-      "3,6,8": {
-        "x": 1120
-      },
-      "4,5,6": {
-        "x": 1260
-      },
-      "4,5,8": {
-        "x": 1400
-      },
-      "4,6,8": {
-        "x": 1540
-      },
-      "5,6,8": {
-        "x": 1680
-      },
-      "1,2,3,4,5,6,8": {
-        "x": -70
+      "{2,3}": {
+        "x": 140
       }
     }
   },
@@ -19756,7 +18451,7 @@
       },
       {
         "id": "check-1-1769871537105",
-        "name": "Rangfunktion",
+        "name": "Rang = Covers",
         "code": "const z = zero;\nif (!z) return 'Kein Nullelement';\nconst dist = {[z]: 0};\nconst multi = new Set();\nfor (const n of [...nodes].sort((a, b) => rank(a) - rank(b))) {\n  for (const above of neighbors(n).filter(nb => rank(nb) >= rank(n))) {\n    const d = (dist[n] ?? 0) + 1;\n    if (!(above in dist)) dist[above] = d;\n    else if (dist[above] !== d) multi.add(above);\n  }\n}\nconst bad = nodes.filter(n => !(n in dist) || dist[n] !== rank(n) || multi.has(n));\nreturn bad.length ? bad.map(n =>\n  !(n in dist) ? `${n} unerreichbar`\n  : multi.has(n) ? `${n} nicht graduiert`\n  : `${n}(rg=${rank(n)}, Kette=${dist[n]})`\n).join(', ') : null;\n",
         "expanded": false
       },
@@ -19769,31 +18464,31 @@
       {
         "id": "check-5-1769874387549",
         "name": "Fastgeometrisch",
-        "code": "const notAtomic = coveredBy(one).filter(coAtom => isAtomic(coAtom) !== null)\nif (notAtomic.length > 0) {\n  return `${notAtomic} sind Coatome mit nicht atomaren Hauptidealen ${isAtomic(notAtomic[0])}`\n}\nconst notSubmodular = coveredBy(one).filter(coAtom => isSubmodular(coAtom) !== null)\nif (notSubmodular.length > 0) {\n  return `${notSubmodular} sind Coatome mit nicht submodularen Hauptidealen ${isSubmodular(notSubmodular[0])}`\n}",
+        "code": "const notAtomic = coveredBy(one).filter(coAtom => isAtomic(coAtom) !== null)\nif (notAtomic.length > 0) {\n  return `${notAtomic} sind Coatome mit nicht atomaren Hauptidealen ${isAtomic(notAtomic[0])}`\n}\nconst notSubmodular = coveredBy(one).filter(coAtom => isSubmodular(coAtom) !== null)\nif (notSubmodular.length > 0) {\n  return `${notSubmodular} sind Coatome mit nicht submodularen Hauptidealen ${isSubmodular(notSubmodular[0])}`\n}\n// also check if it even is a lattice\nfor (let i = 0; i < nodes.length; i++) {\n  for (let j = i; j < nodes.length; j++) {\n    const a = nodes[i], b = nodes[j];\n    if (!sup(a, b)) {\n      return `No unique sup for ${a}, ${b}`;\n    }\n    if (!inf(a, b)) {\n      return `No unique inf for ${a}, ${b}`;\n    }\n  }\n}\n\n// Rangfunktion\nconst z = zero;\nif (!z) return 'Kein Nullelement';\nconst dist = {[z]: 0};\nconst multi = new Set();\nfor (const n of [...nodes].sort((a, b) => rank(a) - rank(b))) {\n  for (const above of neighbors(n).filter(nb => rank(nb) >= rank(n))) {\n    const d = (dist[n] ?? 0) + 1;\n    if (!(above in dist)) dist[above] = d;\n    else if (dist[above] !== d) multi.add(above);\n  }\n}\nconst bad = nodes.filter(n => !(n in dist) || dist[n] !== rank(n) || multi.has(n));\nreturn bad.length ? bad.map(n =>\n  !(n in dist) ? `${n} unerreichbar`\n  : multi.has(n) ? `${n} nicht graduiert`\n  : `${n}(rg=${rank(n)}, Kette=${dist[n]})`\n).join(', ') : null;\n",
         "expanded": false
       },
       {
         "id": "check-3-1769873538793",
         "name": "Atomar",
-        "code": "//definiert in helpers unten\nreturn isAtomic(one)",
+        "code": "//definiert in helpers unten\nisato = isAtomic(one)\nif(isato){\n  return isAtomic(one)\n}\n// also check if it even is a lattice\nfor (let i = 0; i < nodes.length; i++) {\n  for (let j = i; j < nodes.length; j++) {\n    const a = nodes[i], b = nodes[j];\n    if (!sup(a, b)) {\n      return `No unique sup for ${a}, ${b}`;\n    }\n    if (!inf(a, b)) {\n      return `No unique inf for ${a}, ${b}`;\n    }\n  }\n}\nreturn null;",
         "expanded": false
       },
       {
         "id": "check-4-1769873900087",
         "name": "Submodular",
-        "code": "// definiert in helpers unten\nreturn isSubmodular(one)",
+        "code": "// definiert in helpers unten\nsubmod = isSubmodular(one)\nif(submod){\n  return submod;\n}\n// also check if it even is a lattice\nfor (let i = 0; i < nodes.length; i++) {\n  for (let j = i; j < nodes.length; j++) {\n    const a = nodes[i], b = nodes[j];\n    if (!sup(a, b)) {\n      return `No unique sup for ${a}, ${b}`;\n    }\n    if (!inf(a, b)) {\n      return `No unique inf for ${a}, ${b}`;\n    }\n  }\n}\nreturn null;",
         "expanded": false
       },
       {
         "id": "check-6-1769907344258",
         "name": "Geometrisch",
-        "code": "return (isSubmodular(one) ===null) && (isAtomic(one) === null) ? null : 'Not atomic or not submodular'",
+        "code": "isgeo = (isSubmodular(one) === null) && (isAtomic(one) === null) ? null : 'Not atomic or not submodular'\nif(isgeo){\n  return isgeo;\n}\n// also check if it even is a lattice\nfor (let i = 0; i < nodes.length; i++) {\n  for (let j = i; j < nodes.length; j++) {\n    const a = nodes[i], b = nodes[j];\n    if (!sup(a, b)) {\n      return `No unique sup for ${a}, ${b}`;\n    }\n    if (!inf(a, b)) {\n      return `No unique inf for ${a}, ${b}`;\n    }\n  }\n}\nreturn null;",
         "expanded": false
       },
       {
         "id": "check-7-1769944833254",
         "name": "Autoconnect to one and zero",
-        "code": "nodes.filter(node => rank(node)===1).forEach(atom => connect(atom, zero))\nnodes.filter(node => rank(node) === (rank(one)-1)).forEach(coAtom => connect(coAtom, one))",
+        "code": "//nodes.filter(node => rank(node)===1).forEach(atom => connect(atom, zero))\n//nodes.filter(node => rank(node) === (rank(one)-1)).forEach(coAtom => connect(coAtom, one))",
         "expanded": false
       }
     ],
@@ -19833,6 +18528,12 @@
         "id": "fn-6-1774649476201",
         "name": "L+ (strengerer Filter)",
         "code": "const maxRank = rank(one);\nlet L_plus_leq_k = [[], ...atoms(one).map(a => [a])];\nlet L_plus_k = atoms(one).map(a => [a]);\n\nfor (let k = 1; k < maxRank - 1; k++) {\n  let K_next = [];\n  \n  L_plus_k.forEach(T => {\n    atoms(one).forEach(a => {\n      if (!T.includes(a)) {\n        K_next = cup(K_next, [M_hat(cup(T, [a]))]);\n      }\n    });\n  });\n\n  let changed = true;\n  while (changed) {\n    changed = false;\n    \n    for (let i = 0; i < K_next.length; i++) {\n        // Fall 1: Teste gegen andere verbleibende Elemente in K_{k+1}\n        for (let j = i + 1; j < K_next.length; j++) {\n            const intersect = cap(K_next[i], K_next[j]);\n            const is_in_L = L_plus_leq_k.some(S => setEquals(S, intersect));\n            \n            if (!is_in_L) {\n                // Beide entfernen und durch Zusammenschluss ersetzen\n                const merged = M_hat(cup(K_next[i], K_next[j]));\n                K_next.splice(j, 1);\n                K_next.splice(i, 1);\n                K_next = cup(K_next, [merged]);\n                changed = true;\n                break;\n            }\n        }\n        if (changed) break;\n\n        // Fall 2 (Die Erweiterung!): Teste gegen bereits feste Elemente in L^+_leq_k\n        for (let j = 0; j < L_plus_leq_k.length; j++) {\n            const intersect = cap(K_next[i], L_plus_leq_k[j]);\n            const is_in_L = L_plus_leq_k.some(S => setEquals(S, intersect));\n\n            if (!is_in_L) {\n                // Nur den Kandidaten aus K_{k+1} aus dem Spiel nehmen und durch Zusammenschluss ersetzen\n                const merged = M_hat(cup(K_next[i], L_plus_leq_k[j]));\n                K_next.splice(i, 1);\n                K_next = cup(K_next, [merged]);\n                changed = true;\n                break;\n            }\n        }\n        if (changed) break;\n    }\n  }\n  \n  L_plus_k = K_next;\n  L_plus_leq_k = cup(L_plus_leq_k, L_plus_k);\n}\n\n// Oben noch A_L hinzufügen\nconst fixed = cup(L_plus_leq_k, [atoms(one)]);\n\n// Rendering und Farbübernahme\nconst fixedGraph = fromSetSystem(fixed);\nnodes.forEach(node => {\n  const fNode = fixedGraph.getAllNodes().find(f => setEquals(fixedGraph.atoms(f), atoms(node)));\n  if (fNode) fixedGraph.setColor(fNode, color(node));\n});\nreturn secView.show(fixedGraph);",
+        "expanded": false
+      },
+      {
+        "id": "fn-6-1779739763225",
+        "name": "Ranganhebung",
+        "code": "const allNodes = getAllNodes();\nif (allNodes.length === 0) return 'Leerer Verband';\n\nconst topEl = one;\nif (!topEl) return 'Kein Einselement gefunden';\n\nconst coatoms = coveredBy(topEl);\nif (coatoms.length === 0) return 'Einselement hat keine Coatome';\n\nconst globalMax = Math.max(...coatoms.map((n) => rank(n) ?? 0));\nconst candidates = coatoms\n  .filter((n) => (rank(n) ?? 0) < globalMax)\n  .sort((a, b) => (rank(b) ?? 0) - (rank(a) ?? 0));\n\nif (candidates.length === 0) {\n  return 'Alle Coatome haben bereits denselben Rang (' + globalMax + ')';\n}\n\nconst m = candidates[0];\nconst idealM = ideal(m);\n\nconst greekPool = ['α','β','γ','δ','ε','ζ','η','θ','ι','κ','λ','μ','ν','ξ','ο','π','ρ','σ','τ','υ','φ','χ','ψ','ω'];\nconst taken = new Set(allNodes);\nconst nextGreek = () => {\n  for (const l of greekPool) if (!taken.has(l)) { taken.add(l); return l; }\n  for (let s = 1; ; s++) for (const l of greekPool) {\n    const id = l + s;\n    if (!taken.has(id)) { taken.add(id); return id; }\n  }\n};\n\nconst idMap = new Map();\nidealM.forEach((x) => idMap.set(x, nextGreek()));\n\nconst coversInIdeal = new Map();\nidealM.forEach((x) => {\n  coversInIdeal.set(x, covers(x).filter((y) => idMap.has(y)));\n});\n\nconst isPri = addNode === pri.addNode;\nconst view = isPri ? priView : secView;\nconst storageKey = isPri ? 'lattice-state-v1-primary' : 'lattice-state-v1-secondary';\n\nconst raw = window.localStorage.getItem(storageKey);\nconst current = raw ? JSON.parse(raw) : { elements: {}, relations: [], positions: {} };\n\nconst randHex = () => Math.floor(Math.random() * 256).toString(16).padStart(2, '0');\nconst newColor = '#' + randHex() + randHex() + randHex();\n\nconst newElements = { ...current.elements };\nidealM.forEach((x) => {\n  const id = idMap.get(x);\n  newElements[id] = { id, rank: (rank(x) ?? 0) + 1, color: newColor };\n});\n\nlet newRelations = current.relations.filter((r) =>\n  !((r.from === topEl && r.to === m) || (r.from === m && r.to === topEl))\n);\nconst addEdge = (a, b) => {\n  newRelations.push({ from: a, to: b });\n  newRelations.push({ from: b, to: a });\n};\nidealM.forEach((x) => addEdge(x, idMap.get(x)));\nidealM.forEach((x) => coversInIdeal.get(x).forEach((y) => addEdge(idMap.get(x), idMap.get(y))));\naddEdge(idMap.get(m), topEl);\n\nconst newPositions = { ...current.positions };\nconst NODE_GAP = 120;\nconst RIGHT_PAD = 120;\nconst newByRank = new Map();\nidealM.forEach((x) => {\n  const r = (rank(x) ?? 0) + 1;\n  if (!newByRank.has(r)) newByRank.set(r, []);\n  newByRank.get(r).push(idMap.get(x));\n});\nnewByRank.forEach((ids, r) => {\n  const xs = Object.entries(current.elements)\n    .filter((entry) => entry[1].rank === r)\n    .map((entry) => current.positions[entry[0]]?.x ?? 0);\n  const maxX = xs.length > 0 ? Math.max(...xs) : 0;\n  ids.forEach((id, i) => {\n    newPositions[id] = { x: maxX + RIGHT_PAD + i * NODE_GAP };\n  });\n});\n\nview.show({ elements: newElements, relations: newRelations, positions: newPositions });\n\nreturn 'Ranganhebung von \"' + m + '\" (Rang ' + rank(m) + ' → ' + ((rank(m) ?? 0) + 1) +\n       '). Neue Elemente: ' + Array.from(idMap.values()).join(', ') + ' (Farbe ' + newColor + ').';\n",
         "expanded": false
       }
     ],

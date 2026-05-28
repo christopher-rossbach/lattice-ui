@@ -401,7 +401,6 @@ export const LayerPanel: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <div style={{ fontWeight: 700 }}>Lattice Manager</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <div style={{ color: '#475569', fontSize: 12 }}>Save or load lattices into either graph</div>
           <button
             onClick={() => {
               const json = collectCurrentDefaults();
@@ -422,6 +421,22 @@ export const LayerPanel: React.FC = () => {
             style={{ ...buttonStyles.secondary, fontSize: 11, padding: '4px 8px' }}
           >
             Export as defaults
+          </button>
+          <button
+            onClick={() => {
+              const ok = window.confirm('This will resets your stored graphs, custom checks, helpers and function. Are you sure you want to continue?');
+              if (!ok) return;
+              try {
+                window.localStorage.removeItem('lattice-state-v1-primary');
+                window.localStorage.removeItem('lattice-state-v1-secondary');
+                window.localStorage.removeItem('lattice-saves-v1');
+                window.localStorage.removeItem('lattice-checks-v1');
+              } catch {}
+              window.location.reload();
+            }}
+            style={{ ...buttonStyles.danger, fontSize: 11, padding: '4px 8px' }}
+          >
+            Reset everything to defaults
           </button>
         </div>
       </div>

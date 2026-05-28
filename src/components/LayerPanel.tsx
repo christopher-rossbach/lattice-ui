@@ -7,7 +7,6 @@ import { generateGraphSVG } from '../helpers/exportGraph';
 import { exportPDFToServer } from '../helpers/exportApi';
 import { getNodeDisplayLabel } from '../helpers/nodeLabel';
 import bundledDefaults from '../defaults/initialState';
-import { collectCurrentDefaults } from '../defaults/exportDefaults';
 
 /**
  * Parse a graph definition in covering relation format.
@@ -401,27 +400,6 @@ export const LayerPanel: React.FC = () => {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
         <div style={{ fontWeight: 700 }}>Lattice Manager</div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-          <button
-            onClick={() => {
-              const json = collectCurrentDefaults();
-              navigator.clipboard.writeText(json).then(() => {
-                setMessage('Defaults JSON copied to clipboard. Paste into src/defaults/initialState.ts');
-              }).catch(() => {
-                // Fallback: download as file
-                const blob = new Blob([json], { type: 'application/json' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'initialState.json';
-                a.click();
-                URL.revokeObjectURL(url);
-                setMessage('Defaults JSON downloaded as initialState.json');
-              });
-            }}
-            style={{ ...buttonStyles.secondary, fontSize: 11, padding: '4px 8px' }}
-          >
-            Export as defaults
-          </button>
           <button
             onClick={() => {
               const ok = window.confirm('This will resets your stored graphs, custom checks, helpers and function. Are you sure you want to continue?');
